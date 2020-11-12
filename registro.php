@@ -1,3 +1,6 @@
+<?php
+include_once "conexion.php";
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -8,12 +11,38 @@
     <title>Registro</title>
 </head>
 <body>
-    <input type="text" name="txtNombre" id="txtNombre"><br>
-    <input type="text" name="txtApellido" id="txtApellido"><br>
-    <input type="text" name="txtDireccion" id="txtDireccion"><br>
-    <input type="text" name="txtTelefono" id="txtTelefono"><br>
+    <form name="frmRegistro" method="post" action="">
+        <label>Nombre: </label>
+        <input type="text" name="txtNombre" id="txtNombre"><br>
 
-    <button type="button" id="btnRegistrar">Registrar</button>
+        <label>Apellido: </label>
+        <input type="text" name="txtApellido" id="txtApellido"><br>
+
+        <label>Dirección: </label>
+        <input type="text" name="txtDireccion" id="txtDireccion"><br>
+
+        <label>Teléfono: </label>
+        <input type="text" name="txtTelefono" id="txtTelefono"><br>
+
+        <button type="submit" name="btnRegistrar" id="btnRegistrar">Registrar</button>
+
+    </form>
+
+    <?php
+    $nom = $_REQUEST['txtNombre'];
+    $ape = $_REQUEST['txtApellido'];
+    $dir = $_REQUEST['txtDireccion'];
+    $tel = $_REQUEST['txtTelefono'];
+
+    $sql = "INSERT INTO usuarios  FROM usuarios(nombre, apellido, direccion, telefono) VALUES ($nom, $ape, $dir, $tel) ";
+    $resultado = getDatos($conexion, $sql);
+
+    mysqli_close($conexion);
+
+    echo "Registro exitoso.";
+
+
+    ?>
 
 </body>
 </html>

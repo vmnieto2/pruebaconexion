@@ -1,5 +1,5 @@
 <?php
-require_once "conexion.php";
+include_once "conexion.php";
 ?>
 <!doctype html>
 <html lang="es">
@@ -12,14 +12,8 @@ require_once "conexion.php";
 </head>
 <body>
     <?php
-    $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $database = "pruebaconexion";
-    $conexion = mysqli_connect($host, $user, $pass, $database) or die("Error de conexión");
-
-        $sql = mysqli_query($conexion, "SELECT * FROM usuarios");
-
+        $sql = "SELECT * FROM usuarios";
+        $resultado = getDatos($conexion, $sql);
     ?>
     <div>
         <table border="1">
@@ -35,7 +29,7 @@ require_once "conexion.php";
                 </tr>
             </thead>
             <tbody>
-            <?php foreach ($sql as $res) { ?>
+            <?php foreach ($resultado as $res) { ?>
             <tr>
                 <td><?php echo $res["usuario_id"] ?></td>
                 <td><?php echo $res["usuario_nombre"] ?></td>
@@ -43,7 +37,7 @@ require_once "conexion.php";
                 <td><?php echo $res["usuario_direccion"] ?></td>
                 <td><?php echo $res["usuario_telefono"] ?></td>
                 <td> <a href="editar.php?id=<?php echo $res["usuario_id"] ?>">Editar</a> </td>
-                <td> <a href="eliminar.php?id=<?php echo $res["usuario_id"] ?>">Eliminar</a></td>
+                <td> <a href="eliminar.php?id=<?php echo $res["usuario_id"] ?>">Eliminar</a> </td>
             </tr>
             <?php } ?>
             </tbody>
