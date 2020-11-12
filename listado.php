@@ -12,8 +12,8 @@ include_once "conexion.php";
 </head>
 <body>
     <?php
-        $sql = "SELECT * FROM usuarios";
-        $resultado = getDatos($conexion, $sql);
+        $sql = "SELECT * FROM usuarios WHERE usuario_estado = 1";
+        $resultado = mysqli_query($conexion, $sql);
     ?>
     <div>
         <table border="1">
@@ -39,7 +39,7 @@ include_once "conexion.php";
                 <td> <a href="editar.php?id=<?php echo $res["usuario_id"] ?>">Editar</a> </td>
                 <td> <a href="eliminar.php?id=<?php echo $res["usuario_id"] ?>">Eliminar</a> </td>
             </tr>
-            <?php } ?>
+            <?php } mysqli_close($conexion); ?>
             </tbody>
         </table>
     </div>

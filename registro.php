@@ -29,18 +29,24 @@ include_once "conexion.php";
     </form>
 
     <?php
-    $nom = $_REQUEST['txtNombre'];
-    $ape = $_REQUEST['txtApellido'];
-    $dir = $_REQUEST['txtDireccion'];
-    $tel = $_REQUEST['txtTelefono'];
 
-    $sql = "INSERT INTO usuarios  FROM usuarios(nombre, apellido, direccion, telefono) VALUES ($nom, $ape, $dir, $tel) ";
-    $resultado = getDatos($conexion, $sql);
+    if (isset($_POST["btnRegistrar"])) {
+        
+        $nom = $_POST['txtNombre'];
+        $ape = $_POST['txtApellido'];
+        $dir = $_POST['txtDireccion'];
+        $tel = $_POST['txtTelefono'];
 
-    mysqli_close($conexion);
-
-    echo "Registro exitoso.";
-
+        $sql = "INSERT INTO usuarios (usuario_nombre, usuario_apellido, usuario_direccion, usuario_telefono) VALUES ('$nom', '$ape', '$dir', '$tel') ";
+        $resultado = mysqli_query($conexion, $sql);
+        if($resultado){
+            echo "Registro exitoso.";
+            
+        }else{
+            echo "Error.";
+        }
+        mysqli_close($conexion);
+    }
 
     ?>
 
