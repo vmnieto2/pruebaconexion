@@ -20,18 +20,28 @@ include_once "conexion.php";
         
     ?>
     <form name="frmActualizar" method="post" action="">
-        <label>Nombre: </label>
-        <input type="text" name="txtNombre" id="txtNombre" value="<?php echo $res["usuario_nombre"]; ?>"><br>
+        <table>
+            <tr>
+                <td><label>Nombre: </label></td>
+                <td><input type="text" name="txtNombre" id="txtNombre" value="<?php echo $res["usuario_nombre"]; ?>"></td>
+            </tr>
 
-        <label>Apellido: </label>
-        <input type="text" name="txtApellido" id="txtApellido" value="<?php echo $res["usuario_apellido"]; ?>"><br>
+            <tr>
+                <td><label>Apellido: </label></td>
+                <td><input type="text" name="txtApellido" id="txtApellido" value="<?php echo $res["usuario_apellido"]; ?>"></td>
+            </tr>
 
-        <label>Dirección: </label>
-        <input type="text" name="txtDireccion" id="txtDireccion" value="<?php echo $res["usuario_direccion"]; ?>"><br>
+            <tr>
+                <td><label>Dirección: </label></td>
+                <td><input type="text" name="txtDireccion" id="txtDireccion" value="<?php echo $res["usuario_direccion"]; ?>"></td>
+            </tr>
 
-        <label>Teléfono: </label>
-        <input type="text" name="txtTelefono" id="txtTelefono" value="<?php echo $res["usuario_telefono"]; ?>"><br>
-
+            <tr>
+                <td><label>Teléfono: </label></td>
+                <td><input type="text" name="txtTelefono" id="txtTelefono" value="<?php echo $res["usuario_telefono"]; ?>"></td>
+            </tr>
+        </table>
+        
         <?php } ?>
 
         <button type="submit" name="btnActualizar" id="btnActualizar">Actualizar</button>

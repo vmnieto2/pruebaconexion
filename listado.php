@@ -42,6 +42,9 @@ include_once "conexion.php";
             <?php } mysqli_close($conexion); ?>
             </tbody>
         </table>
+        <br>
+        <br>
+        <a href="index.php">Regresar</a>
     </div>
 </body>
 </html>

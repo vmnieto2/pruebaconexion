@@ -12,17 +12,29 @@ include_once "conexion.php";
 </head>
 <body>
     <form name="frmRegistro" method="post" action="">
-        <label>Nombre: </label>
-        <input type="text" name="txtNombre" id="txtNombre"><br>
 
-        <label>Apellido: </label>
-        <input type="text" name="txtApellido" id="txtApellido"><br>
 
-        <label>Dirección: </label>
-        <input type="text" name="txtDireccion" id="txtDireccion"><br>
+    <table>
+        <tr>
+            <td><label>Nombre: </label></td>
+            <td><input type="text" name="txtNombre" id="txtNombre"></td>
+        </tr>
 
-        <label>Teléfono: </label>
-        <input type="text" name="txtTelefono" id="txtTelefono"><br>
+        <tr>
+            <td><label>Apellido: </label></td>
+            <td><input type="text" name="txtApellido" id="txtApellido"></td>
+        </tr>
+
+        <tr>
+            <td><label>Dirección: </label></td>
+            <td><input type="text" name="txtDireccion" id="txtDireccion"></td>
+        </tr>
+
+        <tr>
+            <td><label>Teléfono: </label></td>
+            <td><input type="text" name="txtTelefono" id="txtTelefono"></td>
+        </tr>
+    </table>
 
         <button type="submit" name="btnRegistrar" id="btnRegistrar">Registrar</button>
 
@@ -49,6 +61,9 @@ include_once "conexion.php";
     }
 
     ?>
+
+    <br><br>
+    <a href="index.php">Regresar</a>
 
 </body>
 </html>
